@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fir-2922c": {
+      "hosting": {
+        "AramOraLejelento": [
+          "fir-2922c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fir-2922c"
+  }
+}
