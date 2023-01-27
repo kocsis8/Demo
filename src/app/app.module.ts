@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MenuComponent } from './shared/menu/menu.component';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MenuComponent } from './shared/menu/menu.component';
 
     FormsModule,
     ReactiveFormsModule,
+    provideStorage(() => getStorage()),
 
   ],
   providers: [],

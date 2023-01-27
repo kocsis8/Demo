@@ -41,23 +41,8 @@ export class AuthService {
           });
   }
 
-  signupUser(user: any): Promise<any> {
-      return this.afAuth.createUserWithEmailAndPassword(user.email, user.password)
-          .then((result) => {
-              let emailLower = user.email.toLowerCase();
-              if(result.user){
-                result.user.sendEmailVerification(); 
-              }
-                                 
-          })
-          .catch(error => {
-              console.log('Auth Service: signup error', error);
-              if (error.code)
-                  return { isValid: false, message: error.message };
-
-                  return { isValid: false, message: error.message };
-          });
-         
+  signupUser(email: string, password: string): Promise<any> {
+      return this.afAuth.createUserWithEmailAndPassword(email, password);         
   }
 
 }
