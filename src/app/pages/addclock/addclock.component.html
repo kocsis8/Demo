@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+
+
+<mat-card>
+    <form [formGroup]="addclockformg" (ngSubmit)="addclock()">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Sorozat szám</mat-label>
+                <input autocomplete="off" formControlName="serialnumber" type="text" matInput placeholder="sorozat szám">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>név</mat-label>
+                <input autocomplete="off" formControlName="cname" type="text" matInput placeholder="név">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>cím</mat-label>
+                <input autocomplete="off" formControlName="adress" type="text" matInput placeholder="cím">
+            </mat-form-field>
+        </p>
+        <button mat-raised-button color="primary">add</button>
+    </form>
+</mat-card>

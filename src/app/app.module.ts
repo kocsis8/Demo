@@ -21,6 +21,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MenuComponent } from './shared/menu/menu.component';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AddclockComponent } from './pages/addclock/addclock.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -30,7 +34,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     SignupComponent,
     LoginComponent,
     DashboardComponent,
-    MenuComponent
+    MenuComponent,
+    AddclockComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,9 +51,16 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-
+    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatNativeDateModule,
+   
+
+
     provideStorage(() => getStorage()),
 
   ],

@@ -39,7 +39,9 @@ export class SignupComponent implements OnInit {
         name:{
           firstname: this.signupForm.get('firstname')?.value,
           lastname: this.signupForm.get('lastname')?.value
-        }
+        },
+        clocks: 0,
+        measurements: 0,
       }
       this.userService.create(user).then(_ => {
         console.log('hozzáadás sikeres');

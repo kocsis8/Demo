@@ -11,15 +11,17 @@ export class AuthService {
 
   
   userLoggedIn: boolean;  
-
+  userId: string;
   constructor(private router: Router, private afAuth: AngularFireAuth) {
       this.userLoggedIn = false;
-
+      this.userId ="";
       this.afAuth.onAuthStateChanged((user) => {              
           if (user) {
               this.userLoggedIn = true;
+              this.userId = user.uid;
           } else {
               this.userLoggedIn = false;
+              this.userId ="";
           }
       });
   }

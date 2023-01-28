@@ -3,4 +3,5 @@ export interface ElectrikClock{
     Uid: string;
     name: string;
     serialnumber: number;
+    adress: string;
 }
