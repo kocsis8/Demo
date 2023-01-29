@@ -25,6 +25,10 @@ import { AddclockComponent } from './pages/addclock/addclock.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AddmeasurementComponent } from './pages/addmeasurement/addmeasurement.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -36,6 +40,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     DashboardComponent,
     MenuComponent,
     AddclockComponent,
+    AddmeasurementComponent,
+    ProfileComponent,
+    ProfileComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -58,7 +66,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatButtonModule,
     MatNativeDateModule,
-   
+    MatTableModule,
+    MatIconModule,
 
 
     provideStorage(() => getStorage()),

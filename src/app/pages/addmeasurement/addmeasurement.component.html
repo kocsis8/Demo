@@ -1,0 +1,66 @@
+
+<app-menu></app-menu>
+
+<mat-card>
+    <form [formGroup]="addmeasurementformg" (ngSubmit)="addmeasurement()">
+        <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Valasszon órát</mat-label>
+              <mat-select formControlName="clockserial">
+                <mat-option *ngFor="let clock of clocks" [value]="clock.serialnumber">
+                  {{clock.serialnumber  + ' - ' + clock.name }} 
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </p>
+  
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Óraállás</mat-label>
+                <input autocomplete="off" formControlName="value" type="number" matInput placeholder="Óraállás">
+            </mat-form-field>
+        </p>
+  
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Válassz dátumot</mat-label>
+            <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="selecteddate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </p>
+        <button mat-raised-button color="primary">Rögzítés</button>
+    </form>
+  </mat-card>
+
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Széria szám </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="cid">
+      <th mat-header-cell *matHeaderCellDef> Név </th>
+      <td mat-cell *matCellDef="let element"> {{element.cid}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef> Cím </th>
+      <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Törlés </th>
+      <td mat-cell *matCellDef="let element"> <mat-icon aria-hidden="false" fontIcon="delete" (click)="datelemeasurement(element.id)"></mat-icon> </td>
+    </ng-container>
+  
+  
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

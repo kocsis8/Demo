@@ -7,6 +7,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { AddclockComponent } from './pages/addclock/addclock.component';
+import { AddmeasurementComponent } from './pages/addmeasurement/addmeasurement.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'addclock', component: AddclockComponent, canActivate: [AuthGuard] },
+  { path: 'addmeasurement', component: AddmeasurementComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '**', component: HomeComponent },
 ];
 

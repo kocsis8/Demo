@@ -3,5 +3,5 @@ export interface Measurement{
     uid: string;
     cid: string;
     value: number;
-    date: Date;
+    date: string;
 }

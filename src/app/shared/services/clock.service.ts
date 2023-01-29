@@ -12,10 +12,13 @@ export class ClockService {
 
   create(clock: ElectrikClock){
      return this.afs.collection<ElectrikClock>(this.collectionNames).add(clock);
-     
   }
 
-  gatallbyuser(userid: string){
+  getallbyuser(userid: string){
     return this.afs.collection<ElectrikClock>(this.collectionNames, ref => ref.where("Uid","==" , userid)).valueChanges();
+  }
+
+  deleteById(clockId: string){
+    //TODO
   }
 }
