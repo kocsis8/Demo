@@ -1,0 +1,29 @@
+.logo{
+    width: 20%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+}
+
+a:hover, a:active{
+    color: orange;
+}
+
+mat-list-item{
+    width: auto;
+}
+
+mat-toolbar{
+    background: gold;
+}
+
+mat-sidenav{
+    width: 50%;
+    background: gold;
+}

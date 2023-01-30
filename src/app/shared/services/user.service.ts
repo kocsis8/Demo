@@ -20,11 +20,13 @@ export class UserService {
     return this.afs.collection<User>(this.collectionNames).doc(userid).update({clocks: clocks});
   }
 
+  updatename(userid: string, fiarstname: string, lastname: string){
+    return this.afs.collection<User>(this.collectionNames).doc(userid).update({name:{ firstname:fiarstname , lastname: lastname}});
+  }
+
   updatemeasurementcount(userid: string, measurements: number){
     return this.afs.collection<User>(this.collectionNames).doc(userid).update({measurements: measurements});
   }
-
-  delete(){}
 
   userById(userid: string){
     return this.afs.collection<User>(this.collectionNames).doc(userid).valueChanges();

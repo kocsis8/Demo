@@ -1,10 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Measurement } from '../../shared/models/Measurement';
-import { ElectrikClock } from '../../shared/models/ElectricClock';
 import { AuthService } from '../../shared/services/auth.service';
-import { ClockService } from '../../shared/services/clock.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserService } from '../../shared/services/user.service';
+import { User } from '../../shared/models/User';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,15 +10,19 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class DashboardComponent implements OnInit, OnChanges  {
    
+  cuser: User ={ id: "", email: "", name:{ firstname: "", lastname: "" }, clocks: 0, measurements: 0};
 
-  
+  constructor(private authService: AuthService, private userService: UserService){}
 
   ngOnChanges(changes: SimpleChanges) {
     
   }
 
   ngOnInit(): void {
-
+        this.userService.userById(this.authService.userId).subscribe(user => {
+      if (user != undefined)
+      this.cuser= user;
+    })
   }
 
 

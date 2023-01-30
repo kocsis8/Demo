@@ -45,6 +45,7 @@ export class SignupComponent implements OnInit {
       }
       this.userService.create(user).then(_ => {
         console.log('hozzáadás sikeres');
+        this.router.navigate(['/dashboard']); 
       }).catch(error => {
         console.log(error);
       })

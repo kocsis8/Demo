@@ -1,0 +1,45 @@
+mat-card{
+    width: fit-content;
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+    backdrop-filter: blur(50px);
+    background-color: #ffffff36;
+    margin: auto;
+}
+
+button{
+    width: 100%;
+    font-size: medium;
+}
+
+form{
+    width: 115%;
+}
+
+mat-form-field{
+    width: 100%;
+
+}
+
+table{
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+    backdrop-filter: blur(50px);
+    background-color: #ffffff36;
+   
+}
+
+.mdc-data-table__table{
+    min-width: fit-content;
+    margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    mat-card{
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+}

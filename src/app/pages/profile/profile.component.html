@@ -1,1 +1,33 @@
 <app-menu></app-menu>
+<div fxFlexFill fxLayoutAlign="center center">
+<mat-card>
+
+      <mat-card-title>
+
+        <mat-list>
+            <mat-list-item> Rögzített órák: {{cuser.clocks}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>rögzített állások: {{cuser.measurements}}</mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+
+      </mat-card-title>
+       <mat-card-header>
+    
+      <mat-form-field appearance="fill">
+  <mat-label>Keresz név</mat-label>
+  <input matInput value= "{{cuser.name.firstname}}" #firstname>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Vezeték név</mat-label>
+  <input matInput value="{{cuser.name.lastname}}" #lastname>
+</mat-form-field>
+</mat-card-header>
+<mat-card-title-group>
+<button mat-raised-button color="primary" (click)="update(firstname.value, lastname.value)">Frissítés</button>
+    </mat-card-title-group>
+  
+
+</mat-card>
+</div>

@@ -1,5 +1,6 @@
 <app-menu></app-menu>
 
+<div fxFlexFill fxLayout="row wrap" >
 
 <mat-card>
     <form [formGroup]="addclockformg" (ngSubmit)="addclock()">
@@ -23,9 +24,11 @@
                 <input autocomplete="off" formControlName="adress" type="text" matInput placeholder="cím">
             </mat-form-field>
         </p>
-        <button mat-raised-button color="primary">add</button>
+        <button mat-raised-button color="primary">Rögzít</button>
     </form>
 </mat-card>
+
+
 
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -51,4 +54,4 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  
+</div>

@@ -1,36 +1,41 @@
-<button mat-raised-button color="primary" routerLink="/signup">
-    Signup
-</button>
+<mat-sidenav #sidenav>
+    <mat-list>
+        <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/home" (click)="close(sidenav)">Fő oldal </a></mat-list-item>
+        <mat-list-item *ngIf="!(afAuth.user | async)"><a routerLink="/login" (click)="close(sidenav)">Bejelentkezés</a></mat-list-item>
+        <mat-list-item *ngIf="!(afAuth.user | async)"><a routerLink="/signup"(click)="close(sidenav)">Regisztráció</a></mat-list-item>
+        <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/dashboard"(click)="close(sidenav)">Vezérlő</a></mat-list-item>
+        <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/addclock"(click)="close(sidenav)">Órák</a></mat-list-item>
+        <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/addmeasurement"(click)="close(sidenav)">Óra állások</a></mat-list-item>
+        <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/profile"(click)="close(sidenav)">Profil</a></mat-list-item>
+        <mat-list-item *ngIf="(afAuth.user | async)"><a (click)="logout()">Kijeletkezés</a></mat-list-item>
+      </mat-list>
+</mat-sidenav>
 
-<button mat-raised-button color="primary" routerLink="/login">
-    Login
-</button>
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <div fxHide.gt-sm>
+            <button mat-icon-button (click)="onToggleSidenav(sidenav)">
+                <mat-icon >menu</mat-icon>
+            </button>
+        </div>
+           <div> <h3>Óra állás</h3></div> 
+           <div fxFlex fxLayout fxLayoutAlign ="flex-end" fxHide.lt-md>
+            <mat-list  fxLayout fxLayoutGap = "20px">
+                <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/home">Fő oldal </a></mat-list-item>
+                <mat-list-item *ngIf="!(afAuth.user | async)"><a routerLink="/login">Bejelentkezés</a></mat-list-item>
+                <mat-list-item *ngIf="!(afAuth.user | async)"><a routerLink="/signup">Regisztráció</a></mat-list-item>
+                <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/dashboard">Vezérlő</a></mat-list-item>
+                <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/addclock">Órák</a></mat-list-item>
+                <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/addmeasurement">Óra állások</a></mat-list-item>
+                <mat-list-item *ngIf="(afAuth.user | async)"><a routerLink="/profile">Profil</a></mat-list-item>
+                <mat-list-item *ngIf="(afAuth.user | async)"><a (click)="logout()">Kijeletkezés</a></mat-list-item>
+              </mat-list>
+           </div>
+        </mat-toolbar>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 
-<button mat-raised-button color="primary" routerLink="/dashboard">
-    Dashboard
-</button>
-
-<button mat-raised-button color="primary" routerLink="/addclock">
-    Add clock
-</button>
-
-<button mat-raised-button color="primary" routerLink="/addmeasurement">
-    Add measurement
-</button>
-
-<button mat-raised-button color="primary" routerLink="/profile">
-    Profile
-</button>
 
 
-<div *ngIf="(afAuth.user | async)">
-    User is logged in
 
-    <br>
-    <button mat-raised-button color="primary" (click)="logout()">
-        Log out
-    </button>
-</div>
-<div *ngIf="!(afAuth.user | async)">
-    User is not logged in
-</div>
